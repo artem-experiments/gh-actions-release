@@ -30,7 +30,7 @@ jobs:
       - name: get the new tag
         id: new_tag
         run: echo "::set-output name=tag::v${{ github.event.inputs.version }}"
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
         with:
           fetch-depth: 0
       - name: get last tag information
@@ -92,13 +92,13 @@ jobs:
       - name: Commit changelog and push it
         id: commit-and-push
         run: |
+          git checkout -b release/${{ needs.version-info.outputs.new_tag }}
           git config user.name "GitHub Actions"
           git config user.email noreply@github.com
           git add CHANGELOG.md
-          git commit -m 'Changelog update ${{ needs.version-info.outputs.new_tag }}'
+          git commit -m 'Changelog update ${{ needs.version-info.outputs.new_tag }}' -s
           echo "::set-output name=commit::$(git rev-parse HEAD)"
-          git pull --rebase
-          git push
+          git push origin release/${{ needs.version-info.outputs.new_tag }}
           git tag ${{ needs.version-info.outputs.new_tag }}
           git push origin ${{ needs.version-info.outputs.new_tag }}
       - name: create pull request
@@ -108,13 +108,12 @@ jobs:
           title: Release ${{ needs.version-info.outputs.new_tag }}
           body: ${{ needs.generate-changelog.outputs.release_changelog }}
           delete-branch: true
-          branch: release/${{ needs.version-info.outputs.new_tag }}
       - name: set automerge for pull request
         if: steps.pull_request.outputs.pull-request-operation == 'created'
         uses: peter-evans/enable-pull-request-automerge@v3
         with:
           pull-request-number: ${{ steps.pull_request.outputs.pull-request-number }}
-      - name: Create a new release
+      - name: create a new release
         uses: actions/create-release@v1
         with:
           tag_name: ${{ needs.version-info.outputs.new_tag }}
