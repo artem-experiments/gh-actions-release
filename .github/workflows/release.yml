@@ -101,20 +101,10 @@ jobs:
           git push origin release/${{ needs.version-info.outputs.new_tag }}
           git tag ${{ needs.version-info.outputs.new_tag }}
           git push origin ${{ needs.version-info.outputs.new_tag }}
-      - name: create pull request
-        id: pull_request
-        uses: peter-evans/create-pull-request@v4
-        with:
-          title: Release ${{ needs.version-info.outputs.new_tag }}
-          body: ${{ needs.generate-changelog.outputs.release_changelog }}
-          branch: release/${{ needs.version-info.outputs.new_tag }}
-          base: main
-          delete-branch: true
-      - name: set automerge for pull request
-        if: steps.pull_request.outputs.pull-request-operation == 'created'
-        uses: peter-evans/enable-pull-request-automerge@v3
-        with:
-          pull-request-number: ${{ steps.pull_request.outputs.pull-request-number }}
+      - name: create pull request and auto merge it
+        run: |
+          url=$(gh pr create -b "${{ needs.generate-changelog.outputs.release_changelog }}" -t "Release ${{ needs.version-info.outputs.new_tag }}" | grep -F 'https://github.com' )
+          gh pr merge $url --auto -m
       - name: create a new release
         uses: softprops/action-gh-release@v1
         with:
