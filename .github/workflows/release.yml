@@ -29,13 +29,13 @@ jobs:
           fi
       - name: get the new tag
         id: new_tag
-        run: echo "::set-output name=tag::v${{ github.event.inputs.version }}"
+        run: echo "tag=v${{ github.event.inputs.version }}" >> $GITHUB_OUTPUT
       - uses: actions/checkout@v3
         with:
           fetch-depth: 0
       - name: get last tag information
         id: last_tag
-        run: echo "::set-output name=tag::$(git describe --tags $(git rev-list --tags --max-count=1 ))"
+        run: echo "tag=$(git describe --tags $(git rev-list --tags --max-count=1 ))" >> $GITHUB_OUTPUT
 
   generate-changelog:
     runs-on: ubuntu-latest
