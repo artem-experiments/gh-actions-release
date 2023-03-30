@@ -108,6 +108,7 @@ jobs:
           title: Release ${{ needs.version-info.outputs.new_tag }}
           body: ${{ needs.generate-changelog.outputs.release_changelog }}
           branch: release/${{ needs.version-info.outputs.new_tag }}
+          base: main
           delete-branch: true
       - name: set automerge for pull request
         if: steps.pull_request.outputs.pull-request-operation == 'created'
