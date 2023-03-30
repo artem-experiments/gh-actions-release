@@ -1,0 +1,25 @@
+---
+name: "Tests"
+
+on:
+  push:
+    branches:
+      - '*'
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: test
+        run: |
+          sleep 5
+          echo 'TEST!!!'
+          exit 1
+
+  pass-all-tests:
+    runs-on: ubuntu-latest
+    needs:
+      - test
+    steps:
+      - run: echo "All tests passed, yay!"
