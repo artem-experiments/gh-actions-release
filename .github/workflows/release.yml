@@ -82,13 +82,13 @@ jobs:
     needs:
       - generate-changelog
       - version-info
+    permissions:
+      contents: write
     env:
       GITHUB_TOKEN: ${{ secrets.BOT_PAT }}
     steps:
       - name: Check out code
         uses: actions/checkout@v3
-        with:
-          ref: main
       - uses: actions/download-artifact@v3
         with:
           name: CHANGELOG.md
