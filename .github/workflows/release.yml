@@ -64,6 +64,7 @@ jobs:
           since_tag: ${{ needs.version-info.outputs.last_tag }}
           future_release: ${{ needs.version-info.outputs.new_tag }}
           output: 'CHANGELOGRELEASE.md'
+          release_branch: main
       - name: Read the release changelog
         id: release_changelog
         run: |
@@ -106,7 +107,7 @@ jobs:
           git push origin ${{ needs.version-info.outputs.new_tag }}
       - name: create pull request and auto merge it
         env:
-          GH_TOKEN: ${{ github.token }}
+          GH_TOKEN: ${{ secrets.BOT_PAT }}
         run: |
           url=$(gh pr create -b "${{ needs.generate-changelog.outputs.release_changelog }}" -t "Release ${{ needs.version-info.outputs.new_tag }}" | grep -F 'https://github.com' )
           gh pr merge $url --auto -m
