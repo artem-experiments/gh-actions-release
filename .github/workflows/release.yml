@@ -53,6 +53,7 @@ jobs:
           future_release: ${{ needs.version-info.outputs.new_tag }}
           token: ${{ secrets.GITHUB_TOKEN }}
           release_branch: main
+          exclude_labes: duplicate,question,invalid,wontfix,release
       - uses: actions/upload-artifact@v2
         with:
           name: CHANGELOG.md
@@ -109,7 +110,7 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.BOT_PAT }}
         run: |
-          url=$(gh pr create -b "${{ needs.generate-changelog.outputs.release_changelog }}" -t "Release ${{ needs.version-info.outputs.new_tag }}" | grep -F 'https://github.com' )
+          url=$(gh pr create -b "${{ needs.generate-changelog.outputs.release_changelog }}" -t "Release ${{ needs.version-info.outputs.new_tag }}" -l release | grep -F 'https://github.com' )
           gh pr merge $url --auto -m
       - name: create a new release
         uses: softprops/action-gh-release@v1
