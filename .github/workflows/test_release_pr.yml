@@ -5,9 +5,11 @@ on:
   pull_request:
     branches:
       - 'release/v*'
+      - '*'
 
 jobs:
   pass-all-tests:
+    if: github.repository == 'artem-experiments/gh-actions-release'
     runs-on: ubuntu-latest
     steps:
       - run: |
