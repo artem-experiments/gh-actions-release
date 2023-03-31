@@ -14,3 +14,4 @@ jobs:
     steps:
       - run: |
           echo 'Go-go-go, procced with your release! ;-)'
+          echo '${{ github.ref_name }}'
