@@ -50,10 +50,10 @@ jobs:
       - name: Generate full changelog for repository
         uses: charmixer/auto-changelog-action@v1
         with:
-          future_release: ${{ needs.version-info.outputs.new_tag }}
           token: ${{ secrets.GITHUB_TOKEN }}
+          future_release: ${{ needs.version-info.outputs.new_tag }}
           release_branch: main
-          exclude_labes: duplicate,question,invalid,wontfix,release
+          exclude_labels: duplicate,question,invalid,wontfix,release
       - uses: actions/upload-artifact@v2
         with:
           name: CHANGELOG.md
@@ -62,10 +62,11 @@ jobs:
         uses: charmixer/auto-changelog-action@v1
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          since_tag: ${{ needs.version-info.outputs.last_tag }}
           future_release: ${{ needs.version-info.outputs.new_tag }}
-          output: 'CHANGELOGRELEASE.md'
           release_branch: main
+          exclude_labels: duplicate,question,invalid,wontfix,release
+          since_tag: ${{ needs.version-info.outputs.last_tag }}
+          output: 'CHANGELOGRELEASE.md'
       - name: Read the release changelog
         id: release_changelog
         run: |
