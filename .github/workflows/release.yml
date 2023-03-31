@@ -82,9 +82,6 @@ jobs:
     needs:
       - generate-changelog
       - version-info
-    permissions:
-      contents: write
-      pull-requests: write
     env:
       GITHUB_TOKEN: ${{ secrets.BOT_PAT }}
     steps:
