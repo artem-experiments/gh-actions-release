@@ -13,7 +13,7 @@ jobs:
           echo BLA
           echo ${{ github.event.pull_request.head.ref }}
   pass-all-tests:
-    if: github.repository == 'artem-experiments/gh-actions-release' && startsWith('release/v', github.head_ref)
+    if: github.repository == 'artem-experiments/gh-actions-release' && startsWith(github.head_ref, 'release/v')
     runs-on: ubuntu-latest
     steps:
       - run: |
