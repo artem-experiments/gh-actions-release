@@ -1,5 +1,9 @@
 # Changelog
 
+## [v0.0.5](https://github.com/artem-experiments/gh-actions-release/tree/v0.0.5) (2023-03-31)
+
+[Full Changelog](https://github.com/artem-experiments/gh-actions-release/compare/v0.0.4...v0.0.5)
+
 ## [v0.0.4](https://github.com/artem-experiments/gh-actions-release/tree/v0.0.4) (2023-03-30)
 
 [Full Changelog](https://github.com/artem-experiments/gh-actions-release/compare/v0.0.3...v0.0.4)
