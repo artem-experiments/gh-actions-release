@@ -1,5 +1,13 @@
 # Changelog
 
+## [v0.0.18](https://github.com/artem-experiments/gh-actions-release/tree/v0.0.18) (2023-03-31)
+
+[Full Changelog](https://github.com/artem-experiments/gh-actions-release/compare/v0.0.17...v0.0.18)
+
+**Merged pull requests:**
+
+- fix [\#47](https://github.com/artem-experiments/gh-actions-release/pull/47) ([artem-sidorenko](https://github.com/artem-sidorenko))
+
 ## [v0.0.17](https://github.com/artem-experiments/gh-actions-release/tree/v0.0.17) (2023-03-31)
 
 [Full Changelog](https://github.com/artem-experiments/gh-actions-release/compare/v0.0.16...v0.0.17)
