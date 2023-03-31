@@ -12,7 +12,7 @@ on:
 
 jobs:
   pass-all-tests:
-    if: github.repository == 'artem-experiments/gh-actions-release' && startsWith(github.head_ref, 'release/v')
+    if: github.repository == 'artem-experiments/gh-actions-release' && startsWith(github.head_ref, 'release/v') && contains(github.event.head_commit.message, 'Changelog update v')
     runs-on: ubuntu-latest
     steps:
       - run: |
