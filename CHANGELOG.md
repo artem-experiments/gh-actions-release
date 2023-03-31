@@ -1,5 +1,25 @@
 # Changelog
 
+## [v0.0.11](https://github.com/artem-experiments/gh-actions-release/tree/v0.0.11) (2023-03-31)
+
+[Full Changelog](https://github.com/artem-experiments/gh-actions-release/compare/v0.0.10...v0.0.11)
+
+**Merged pull requests:**
+
+- finalfix [\#32](https://github.com/artem-experiments/gh-actions-release/pull/32) ([artem-sidorenko](https://github.com/artem-sidorenko))
+- fix [\#31](https://github.com/artem-experiments/gh-actions-release/pull/31) ([artem-sidorenko](https://github.com/artem-sidorenko))
+- bla [\#30](https://github.com/artem-experiments/gh-actions-release/pull/30) ([artem-sidorenko](https://github.com/artem-sidorenko))
+- fix [\#29](https://github.com/artem-experiments/gh-actions-release/pull/29) ([artem-sidorenko](https://github.com/artem-sidorenko))
+- fix [\#28](https://github.com/artem-experiments/gh-actions-release/pull/28) ([artem-sidorenko](https://github.com/artem-sidorenko))
+- fix [\#27](https://github.com/artem-experiments/gh-actions-release/pull/27) ([artem-sidorenko](https://github.com/artem-sidorenko))
+- fix [\#26](https://github.com/artem-experiments/gh-actions-release/pull/26) ([artem-sidorenko](https://github.com/artem-sidorenko))
+- fixprs [\#24](https://github.com/artem-experiments/gh-actions-release/pull/24) ([artem-sidorenko](https://github.com/artem-sidorenko))
+- Release v0.0.9 [\#23](https://github.com/artem-experiments/gh-actions-release/pull/23) ([artem-bot](https://github.com/artem-bot))
+
+## [v0.0.10](https://github.com/artem-experiments/gh-actions-release/tree/v0.0.10) (2023-03-31)
+
+[Full Changelog](https://github.com/artem-experiments/gh-actions-release/compare/v0.0.9...v0.0.10)
+
 ## [v0.0.9](https://github.com/artem-experiments/gh-actions-release/tree/v0.0.9) (2023-03-31)
 
 [Full Changelog](https://github.com/artem-experiments/gh-actions-release/compare/v0.0.8...v0.0.9)
