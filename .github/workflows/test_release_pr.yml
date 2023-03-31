@@ -4,8 +4,7 @@ name: "Tests release PRs"
 on:
   pull_request:
     branches:
-      - 'release/v*'
-      - '*'
+      - release/v*
 
 jobs:
   pass-all-tests:
