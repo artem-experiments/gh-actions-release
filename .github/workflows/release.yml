@@ -52,6 +52,7 @@ jobs:
         with:
           future_release: ${{ needs.version-info.outputs.new_tag }}
           token: ${{ secrets.GITHUB_TOKEN }}
+          release_branch: main
       - uses: actions/upload-artifact@v2
         with:
           name: CHANGELOG.md
@@ -81,6 +82,8 @@ jobs:
     permissions:
       contents: write
       pull-requests: write
+    env:
+      GITHUB_TOKEN: ${{ secrets.BOT_PAT }}
     steps:
       - name: Check out code
         uses: actions/checkout@v3
